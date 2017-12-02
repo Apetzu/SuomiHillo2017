@@ -6,7 +6,8 @@ public class Tank : MonoBehaviour
 {
     Rigidbody2D hull;
 
-    public float rotationSpeed = 1f;
+    public float shotForce = 500f;
+    public float rotationSpeed = 15f;
     public float movementSpeed = 0.2f;
     public float fireRate = 0.1f;
     public GameObject tankProjectile;
@@ -52,6 +53,7 @@ public class Tank : MonoBehaviour
 			if (lastTime >= fireRate)
 			{
                 GameObject shell = Instantiate(tankProjectile, transform.TransformPoint(tankProjectile.transform.position), transform.rotation);
+                hull.AddRelativeForce(Vector2.right * shotForce);
                 Destroy(shell, 5);
 				lastTime = 0;
 			}
