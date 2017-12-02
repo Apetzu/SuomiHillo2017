@@ -65,7 +65,7 @@ public class topSpawner : MonoBehaviour
 
         if (lastTime2 >= randomTime2)
         {
-            int randNum = Random.Range(1, spawnPoints.Length - 1);
+            int randNum = Random.Range(1, spawnPoints.Length);
 			Instantiate(fighter, spawnPoints[randNum].transform.position, spawnPoints[randNum].transform.rotation);
 
             lastTime2 = 0;
