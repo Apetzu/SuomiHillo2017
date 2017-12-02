@@ -23,7 +23,7 @@ public class bottomSpawner : MonoBehaviour
 		screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight));
 
-        GetComponent<BoxCollider2D> ().size = new Vector2(Mathf.Abs(screenBottomLeft.x - tS.sideScreenBorder) * 2, 1);
+        GetComponent<BoxCollider2D> ().size = new Vector2(Mathf.Abs(screenRightTop.x + tS.sideScreenBorder) * 2, 1);
 		GetComponent<BoxCollider2D> ().offset = new Vector2 (0, screenBottomLeft.y - bottomScreenBorder);
 
         lastTime = coolDown;
@@ -53,7 +53,7 @@ public class bottomSpawner : MonoBehaviour
     {
         if (obj.tag != "Player")
         {
-            if (obj.tag == "Projectiles" && lastTime >= coolDown)
+            if (obj.tag == "Bomb" && lastTime >= coolDown)
             {
                 lastHitPos = obj.transform.position;
                 spawn = true;

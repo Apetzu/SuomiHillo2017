@@ -30,7 +30,7 @@ public class Tank : MonoBehaviour
         pauseLenght = Random.Range(minRanPauseLenght, maxRanPauseLenght);
 	}
 	
-	void Update ()
+	void FixedUpdate ()
     {
         transform.Rotate(new Vector3(0, 0, rotationSpeed), Space.World);
         transform.Translate(Vector2.left * movementSpeed, Space.World);

@@ -265,7 +265,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 590812931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 150
   fireRate: 0.7
+  topClamp: 4
   bullet: {fileID: 1683951704624248, guid: 968cd480526d69e4c8fc037376c3d4e1, type: 2}
 --- !u!50 &590812935
 Rigidbody2D:
@@ -431,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24b7169952a5024d983a6c7101cfd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomScreenBorder: 4
+  bottomScreenBorder: 7
   tS: {fileID: 1739759989}
   spawnableObjects:
   - {fileID: 1447676387984462, guid: f2051c7ecbfea3944a33bfc6cf8df993, type: 2}
@@ -439,62 +440,12 @@ MonoBehaviour:
   - {fileID: 1529388064655270, guid: 011c702e5dea32d48af6e65635060295, type: 2}
   - {fileID: 1704134623068490, guid: 7732b5c0f2179bc439e24b87450503a2, type: 2}
   - {fileID: 1383858716922264, guid: 0d608a75b75a4ab4482f12d0b3e4f04d, type: 2}
+  - {fileID: 1451657740080716, guid: 94caa7c8a7076b541908fe712b40125c, type: 2}
+  - {fileID: 1968616256828348, guid: aa145acb3d9eb0448892c1e72f123e21, type: 2}
   itemForce: 1000
   itemTorque: 200
   coolDown: 2
   offsetSpawn: 3
---- !u!1001 &1094884304
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4049767899726204, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 17.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049767899726204, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049767899726204, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049767899726204, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049767899726204, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049767899726204, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049767899726204, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4049767899726204, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114322644994498732, guid: f79a7392744504e4e84cf7ad3e9963a5,
-        type: 2}
-      propertyPath: shotForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 50157995136592092, guid: f79a7392744504e4e84cf7ad3e9963a5,
-        type: 2}
-      propertyPath: m_LinearDrag
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1739759987
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +456,7 @@ GameObject:
   - component: {fileID: 1739759988}
   - component: {fileID: 1739759989}
   - component: {fileID: 1739759990}
+  - component: {fileID: 1739759991}
   m_Layer: 0
   m_Name: TopSpawner
   m_TagString: Untagged
@@ -541,12 +493,41 @@ MonoBehaviour:
   b_randMaxTime: 15
   f_randMinTime: 1
   f_randMaxTime: 10
+  t_randMinTime: 10
+  t_randMaxTime: 20
   bomber: {fileID: 1070899587417048, guid: a3519abe997447d479e2d17deb463946, type: 2}
   fighter: {fileID: 1238758620418326, guid: bb46da5c97126be47a0dfb1d358e339e, type: 2}
+  tank: {fileID: 1935784865964676, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
   sideScreenBorder: 7
-  topScreenBorder: 1.5
-  bottomScreenBorder: 4
+  topScreenBorder: 5
+  spawnTopScreenBorder: 1.5
+  spawnBottomScreenBorder: 2
 --- !u!61 &1739759990
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1739759987}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &1739759991
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}

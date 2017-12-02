@@ -17,9 +17,12 @@ public class planeShooting : MonoBehaviour
 	double lastTime2 = 0;
 	bool shooting = false;
     float pauseLenght;
+    Vector2 screenBottomLeft;
 
 	void Start () 
     {
+        screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
+
         lastTime2 = Random.Range(minRanStartLenght, maxRanStartLenght);
         pauseLenght = Random.Range(minRanPauseLenght, maxRanPauseLenght);
 	}
@@ -41,7 +44,7 @@ public class planeShooting : MonoBehaviour
 
         lastTime2 += Time.deltaTime;
 
-		if (shooting)
+        if (shooting && transform.position.x > screenBottomLeft.x)
 		{
 			if (lastTime >= fireRate)
 			{

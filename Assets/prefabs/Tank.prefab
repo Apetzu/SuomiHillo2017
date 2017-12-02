@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935784865964676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.11, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +55,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.05
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0.3
   m_Material: {fileID: 0}
@@ -99,17 +99,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120579da40b16d042876b96f98c8aab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotForce: 300
+  shotForce: 500
   rotationSpeed: 7
   movementSpeed: 0.1
-  fireRate: 0.2
+  fireRate: 0.3
   tankProjectile: {fileID: 1683951704624248, guid: d0af1230c9ca7f94eadc1ffe23218a49,
     type: 2}
   lenght: 0.4
   minRanPauseLenght: 0.6
   maxRanPauseLenght: 0.6
   minRanStartLenght: 0.4
-  maxRanStartLenght: 0.4
+  maxRanStartLenght: 0.6
 --- !u!212 &212479371067033796
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -10,16 +10,22 @@ public class topSpawner : MonoBehaviour
     public float b_randMaxTime = 3;
     public float f_randMinTime = 10;
     public float f_randMaxTime = 20;
+    public float t_randMinTime = 10;
+    public float t_randMaxTime = 20;
     public GameObject bomber;
     public GameObject fighter;
+    public GameObject tank;
 	public float sideScreenBorder = 4;
-	public float topScreenBorder = 1.5f;
-	public float bottomScreenBorder = 2;
+    public float topScreenBorder = 4;
+	public float spawnTopScreenBorder = 1.5f;
+	public float spawnBottomScreenBorder = 2;
 
     float lastTime = 0;
     float randomTime = 0;
     float lastTime2 = 0;
     float randomTime2 = 0;
+    float lastTime3 = 0;
+    float randomTime3 = 0;
 	Vector2 screenBottomLeft;
 	Vector2 screenRightTop;
 
@@ -38,15 +44,19 @@ public class topSpawner : MonoBehaviour
         }
 
 		// scaling trigger and spawnpoints with screen size
-		float spawnPointDelta = ((screenRightTop.y - topScreenBorder) - (screenBottomLeft.y + bottomScreenBorder)) / (spawnPoints.Length - 1);
+        float spawnPointDelta = ((screenRightTop.y - spawnTopScreenBorder) - (screenBottomLeft.y + spawnBottomScreenBorder)) / (spawnPoints.Length - 1);
 
 		for (int i = 0; i < spawnPoints.Length; i++)
 		{
-			spawnPoints [i].transform.position = new Vector2(screenRightTop.x + sideScreenBorder, (screenRightTop.y - topScreenBorder) - spawnPointDelta * i);
+            spawnPoints [i].transform.position = new Vector2(screenRightTop.x + sideScreenBorder, (screenRightTop.y - spawnTopScreenBorder) - spawnPointDelta * i);
 		}
 
-		GetComponent<BoxCollider2D> ().size = new Vector2(1, screenRightTop.y * 2);
-		GetComponent<BoxCollider2D> ().offset = new Vector2 (screenBottomLeft.x - sideScreenBorder, 0);
+        BoxCollider2D[] colliders = GetComponents<BoxCollider2D>();
+
+        colliders[0].size = new Vector2(1, (screenRightTop.y + topScreenBorder) * 2);
+        colliders[0].offset = new Vector2(screenBottomLeft.x - sideScreenBorder, 0);
+        colliders[1].size = new Vector2(screenRightTop.x * 2, 1);
+        colliders[1].offset = new Vector2(0, screenRightTop.y + topScreenBorder);
 	}
 	
 	void Update () 
@@ -74,6 +84,19 @@ public class topSpawner : MonoBehaviour
         else
         {
             lastTime2 += Time.deltaTime;
+        }
+
+        if (lastTime3 >= randomTime3)
+        {
+            int randNum = Random.Range(1, spawnPoints.Length - 1);
+            Instantiate(tank, spawnPoints[randNum].transform.position, spawnPoints[randNum].transform.rotation);
+
+            lastTime3 = 0;
+            randomTime3 = Random.Range(t_randMinTime, t_randMaxTime);
+        }
+        else
+        {
+            lastTime3 += Time.deltaTime;
         }
 	}
 
