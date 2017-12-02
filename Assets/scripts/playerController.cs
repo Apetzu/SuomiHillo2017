@@ -42,4 +42,12 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }
+
+    void OnTriggerEnter2D(Collider2D obj)
+    {
+        if (obj.tag != "PlayerProjectile")
+        {
+
+        }
+    }
 }
