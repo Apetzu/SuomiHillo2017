@@ -441,7 +441,7 @@ MonoBehaviour:
   - {fileID: 1383858716922264, guid: 0d608a75b75a4ab4482f12d0b3e4f04d, type: 2}
   itemForce: 1000
   itemTorque: 200
-  coolDown: 0
+  coolDown: 2
   offsetSpawn: 3
 --- !u!1001 &1094884304
 Prefab:
