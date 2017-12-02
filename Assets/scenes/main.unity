@@ -441,11 +441,8 @@ MonoBehaviour:
   - {fileID: 1383858716922264, guid: 0d608a75b75a4ab4482f12d0b3e4f04d, type: 2}
   itemForce: 1000
   itemTorque: 200
-<<<<<<< HEAD
   coolDown: 0
   offsetSpawn: 3
-=======
-  coolDown: 2
 --- !u!1001 &1094884304
 Prefab:
   m_ObjectHideFlags: 0
@@ -498,7 +495,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f79a7392744504e4e84cf7ad3e9963a5, type: 2}
   m_IsPrefabParent: 0
->>>>>>> bfda9119f0e8014e3e9d655b87f22c8db757c409
 --- !u!1 &1739759987
 GameObject:
   m_ObjectHideFlags: 0
