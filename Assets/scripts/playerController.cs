@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour 
 {
-	public float movementSpeed = 5;
+	public float movementSpeed = 5f;
+    public float fireRate = 0.5f;
+
+    public GameObject bullet;
+    bool canShoot = true;
 
 	Rigidbody2D rb;
 	Vector2 screenBottomLeft;
@@ -22,5 +26,19 @@ public class playerController : MonoBehaviour
 		rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * movementSpeed);
 
 		transform.position = new Vector2(Mathf.Clamp(transform.position.x, screenBottomLeft.x, screenRightTop.x), Mathf.Clamp(transform.position.y, screenBottomLeft.y, screenRightTop.y));
+
+        if(Input.GetButton("Trigger") && canShoot)
+        {
+            GameObject proj = Instantiate(bullet, transform.position + bullet.transform.position, bullet.transform.rotation);
+            canShoot = false;
+            StartCoroutine(FireRateTimer());
+            Destroy(proj, 5);
+        }
 	}
+
+    IEnumerator FireRateTimer()
+    {
+      yield return new WaitForSeconds(fireRate);
+      canShoot = true;
+    }
 }
