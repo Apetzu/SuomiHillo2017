@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935784865964676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.39, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,16 +99,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120579da40b16d042876b96f98c8aab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hull: {fileID: 0}
   rotationSpeed: 1
   movementSpeed: 0.1
   fireRate: 0.3
-  projectile: {fileID: 1683951704624248, guid: ebf94b3951d99b046836e81e3a9e65df, type: 2}
-  lenght: 0.5
+  tankProjectile: {fileID: 1683951704624248, guid: d0af1230c9ca7f94eadc1ffe23218a49,
+    type: 2}
+  lenght: 0.4
   minRanPauseLenght: 1
   maxRanPauseLenght: 1
-  minRanStartLenght: 2
-  maxRanStartLenght: 2
+  minRanStartLenght: 0
+  maxRanStartLenght: 0
 --- !u!212 &212479371067033796
 SpriteRenderer:
   m_ObjectHideFlags: 1

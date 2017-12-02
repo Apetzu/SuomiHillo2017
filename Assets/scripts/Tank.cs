@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tank : MonoBehaviour 
 {
-    public Rigidbody2D hull;
+    Rigidbody2D hull;
 
     public float rotationSpeed = 1f;
     public float movementSpeed = 0.2f;
@@ -51,7 +51,7 @@ public class Tank : MonoBehaviour
 		{
 			if (lastTime >= fireRate)
 			{
-                GameObject shell = Instantiate(tankProjectile, transform.position + tankProjectile.transform.position, transform.rotation);
+                GameObject shell = Instantiate(tankProjectile, transform.TransformPoint(tankProjectile.transform.position), transform.rotation);
                 Destroy(shell, 5);
 				lastTime = 0;
 			}

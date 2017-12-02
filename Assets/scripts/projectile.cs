@@ -13,6 +13,6 @@ public class projectile : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.up * movementSpeed);
+        transform.Translate(Vector2.left * movementSpeed);
     }
 }
