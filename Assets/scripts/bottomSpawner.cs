@@ -5,7 +5,6 @@ using UnityEngine;
 public class bottomSpawner : MonoBehaviour 
 {
     public AudioClip plosion;
-    AudioSource audioSource;
 
 	public float bottomScreenBorder = 2;
     public topSpawner tS;
@@ -30,8 +29,6 @@ public class bottomSpawner : MonoBehaviour
 
         GetComponent<BoxCollider2D> ().size = new Vector2(Mathf.Abs(screenRightTop.x + tS.sideScreenBorder) * 2, 1);
 		GetComponent<BoxCollider2D> ().offset = new Vector2 (0, screenBottomLeft.y - bottomScreenBorder);
-
-        audioSource = GetComponent<AudioSource>();
 
         lastTime = coolDown;
 	}
@@ -63,7 +60,6 @@ public class bottomSpawner : MonoBehaviour
 
             if ((obj.tag == "Bomb" || obj.tag == "Projectiles") && lastTime >= coolDown)
             {
-                //audioSource.Play();
                 lastHitPos = obj.transform.position;
                 spawn = true;
                 lastTime = 0;

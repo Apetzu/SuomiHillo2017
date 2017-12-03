@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 114623617451893488}
   - component: {fileID: 95416085687870400}
   - component: {fileID: 114990964864812710}
-  - component: {fileID: 82962301417873870}
   - component: {fileID: 82635003849767096}
+  - component: {fileID: 82962301417873870}
   m_Layer: 0
   m_Name: Fighter
   m_TagString: Fighter
@@ -288,6 +288,7 @@ MonoBehaviour:
   maxRanPauseLenght: 1.5
   minRanStartLenght: 1
   maxRanStartLenght: 1
+  audioFadeTime: 1
 --- !u!114 &114990964864812710
 MonoBehaviour:
   m_ObjectHideFlags: 1

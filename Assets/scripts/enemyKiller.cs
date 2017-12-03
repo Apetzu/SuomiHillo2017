@@ -11,7 +11,6 @@ public class enemyKiller : MonoBehaviour {
 
     int DamageState = 0;
     scoreCounter scoreCount;
-    bool hitCoolDown = false;
 
     void Start()
     {

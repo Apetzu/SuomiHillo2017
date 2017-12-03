@@ -59,7 +59,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 0.3
+  m_GravityScale: 0.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -181,11 +181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835aec9c08c37c54d94bb6ed9fb796cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPlosion: {fileID: 1390608571686436, guid: 56aafbb66d0d0904f883e99eb085c5ee,
-    type: 2}
   DmgStateAmount: 3
   blinkDuration: 0.1
   blinkingColor: {r: 1, g: 0.49264705, b: 0.49264705, a: 1}
+  deathPlosion: {fileID: 1390608571686436, guid: 56aafbb66d0d0904f883e99eb085c5ee,
+    type: 2}
 --- !u!114 &114322644994498732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,6 +217,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -232,6 +233,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -249,3 +251,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

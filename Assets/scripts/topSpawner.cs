@@ -55,7 +55,7 @@ public class topSpawner : MonoBehaviour
 
         colliders[0].size = new Vector2(1, (screenRightTop.y + topScreenBorder) * 2);
         colliders[0].offset = new Vector2(screenBottomLeft.x - sideScreenBorder, 0);
-        colliders[1].size = new Vector2(screenRightTop.x * 2, 1);
+        colliders[1].size = new Vector2(Mathf.Abs(screenRightTop.x + sideScreenBorder) * 2, 1);
         colliders[1].offset = new Vector2(0, screenRightTop.y + topScreenBorder);
 	}
 	
@@ -89,7 +89,8 @@ public class topSpawner : MonoBehaviour
         if (lastTime3 >= randomTime3)
         {
             int randNum = Random.Range(1, spawnPoints.Length - 1);
-            Instantiate(tank, spawnPoints[randNum].transform.position, spawnPoints[randNum].transform.rotation);
+            GameObject tankG = Instantiate(tank, spawnPoints[randNum].transform.position - new Vector3(sideScreenBorder / 2, 1, 1), spawnPoints[randNum].transform.rotation);
+            Destroy(tankG, 20);
 
             lastTime3 = 0;
             randomTime3 = Random.Range(t_randMinTime, t_randMaxTime);

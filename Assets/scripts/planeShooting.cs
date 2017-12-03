@@ -12,12 +12,15 @@ public class planeShooting : MonoBehaviour
     public float maxRanPauseLenght = 1;
     public float minRanStartLenght = 2;
 	public float maxRanStartLenght = 2;
+    public float audioFadeTime = 1;
 
     double lastTime = 0;
 	double lastTime2 = 0;
 	bool shooting = false;
     float pauseLenght;
+    bool fadeOutOn = false;
     Vector2 screenBottomLeft;
+    AudioSource[] audios;
 
 	void Start () 
     {
@@ -25,6 +28,12 @@ public class planeShooting : MonoBehaviour
 
         lastTime2 = Random.Range(minRanStartLenght, maxRanStartLenght);
         pauseLenght = Random.Range(minRanPauseLenght, maxRanPauseLenght);
+
+        audios = GetComponents<AudioSource>();
+
+        StartCoroutine(FadeIn(audios[0], audioFadeTime));
+        if (this.gameObject.tag == "Fighter")
+            StartCoroutine(FadeIn(audios[1], audioFadeTime));
 	}
 	
 	void Update ()
@@ -50,7 +59,7 @@ public class planeShooting : MonoBehaviour
 			{
 				if (this.gameObject.tag == "Fighter") 
 				{
-					GetComponent<AudioSource>().Play (); 
+					audios[1].Play();
 				}
                 GameObject proj = Instantiate(projectile, transform.position + projectile.transform.position, projectile.transform.rotation);
                 Destroy(proj, 5);
@@ -61,5 +70,46 @@ public class planeShooting : MonoBehaviour
 				lastTime += Time.deltaTime;
 			}
 		}
+
+        if (transform.position.x <= screenBottomLeft.x && fadeOutOn == false)
+        {
+            fadeOutOn = true;
+            StartCoroutine(FadeOut(audios[0], audioFadeTime));
+
+            if (this.gameObject.tag == "Fighter")
+            {
+                StartCoroutine(FadeOut(audios[1], audioFadeTime));
+            }
+        }
 	}
+
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.volume = 0;
+    }
+
+    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        audioSource.volume = 0;
+
+        while (audioSource.volume < 1.0f)
+        {
+            audioSource.volume += startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.volume = 1;
+    }
 }
