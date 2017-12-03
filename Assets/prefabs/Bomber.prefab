@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.2
-  fireRate: 0.2
+  fireRate: 0.3
   projectile: {fileID: 1683951704624248, guid: 6ee1e57e209524341a9cb34876c41188, type: 2}
-  lenght: 0.6
+  lenght: 1
   minRanPauseLenght: 0.5
   maxRanPauseLenght: 1
   minRanStartLenght: 0

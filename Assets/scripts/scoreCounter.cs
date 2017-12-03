@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class scoreCounter : MonoBehaviour {
 
+    bool canPress = false;
 
     public Text ScoreAmount;
     public float Score;
@@ -29,7 +30,7 @@ public class scoreCounter : MonoBehaviour {
         }
         else
         {
-            if (Input.anyKeyDown)
+            if (Input.anyKeyDown && canPress)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
@@ -41,6 +42,12 @@ public class scoreCounter : MonoBehaviour {
         ScoreAmount.text = "Score: " + Mathf.RoundToInt(Score).ToString();
     }
 
+    IEnumerator KeyWait()
+    {
+        yield return new WaitForSeconds(2);
+        canPress = true;
+    }
+
     public void AddScore(/*float scoreVar*/)
     {
         Score += 25;
@@ -49,6 +56,7 @@ public class scoreCounter : MonoBehaviour {
     public void GameOver()
     {
         playerKilled = true;
+        StartCoroutine("KeyWait");
         ScoreAmount.enabled = false;
         EndScore.transform.parent.gameObject.SetActive(true);
         EndScore.text = "Your score was:  " + Mathf.RoundToInt(Score).ToString();
