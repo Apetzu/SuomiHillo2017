@@ -8,7 +8,7 @@ public class playerController : MonoBehaviour
     public float fireRate = 0.5f;
     public float topClamp = 5;
     public int DmgStateAmount = 3;
-    public float rateOverTimeDelta = 50;
+    public float rateOverTimeDelta = 100;
 
     public GameObject bullet;
     public ParticleSystem pS;
@@ -41,6 +41,8 @@ public class playerController : MonoBehaviour
             StartCoroutine(FireRateTimer());
             Destroy(proj, 5);
         }
+
+        Debug.Log(DamageState);
 	}
 
     IEnumerator FireRateTimer()
@@ -55,7 +57,7 @@ public class playerController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-        if (obj.tag != "PlayerProjectile")
+        if (obj.tag != "PlayerProjectile" && obj.tag != "BG")
         {
             DamageState++;
             eM.rateOverTime = DamageState * rateOverTimeDelta;
