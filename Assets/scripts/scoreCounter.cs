@@ -21,7 +21,6 @@ public class scoreCounter : MonoBehaviour {
     {
         Score += Time.fixedDeltaTime;
         setScore();
-        Debug.Log(Mathf.RoundToInt(Score));	
 	}
 
     void setScore()

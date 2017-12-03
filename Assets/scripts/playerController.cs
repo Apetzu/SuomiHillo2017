@@ -9,7 +9,9 @@ public class playerController : MonoBehaviour
     public float topClamp = 5;
     public int DmgStateAmount = 3;
     public float rateOverTimeDelta = 100;
-
+    public float hitCoolDownTime = 2;
+    public float blinkingRate = 0.5f;
+    public Color blinkingColor;
     public GameObject bullet;
     public ParticleSystem pS;
     bool canShoot = true;
@@ -19,6 +21,8 @@ public class playerController : MonoBehaviour
 	Vector2 screenRightTop;
     int DamageState = 0;
     ParticleSystem.EmissionModule eM;
+    double lastHitTime = 0;
+    bool hitCoolDown = false;
 
 	void Start () 
 	{
@@ -42,7 +46,15 @@ public class playerController : MonoBehaviour
             Destroy(proj, 5);
         }
 
-        Debug.Log(DamageState);
+        if (lastHitTime >= hitCoolDownTime)
+        {
+            hitCoolDown = false;
+            StopCoroutine(HitBlinking());
+        }
+        else
+        {
+            lastHitTime += Time.deltaTime;
+        }
 	}
 
     IEnumerator FireRateTimer()
@@ -51,14 +63,28 @@ public class playerController : MonoBehaviour
         canShoot = true;
     }
 
+    IEnumerator HitBlinking()
+    {
+        while (hitCoolDown)
+        {
+            GetComponent<SpriteRenderer>().color = blinkingColor;
+            yield return new WaitForSeconds(blinkingRate);
+            GetComponent<SpriteRenderer>().color = Color.white;
+            yield return new WaitForSeconds(blinkingRate);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D obj)
     {
         if (DamageState >= DmgStateAmount)
         {
             this.gameObject.SetActive(false);
         }
-        if (obj.tag != "PlayerProjectile" && obj.tag != "BG")
+        else if (obj.tag != "PlayerProjectile" && obj.tag != "BG" && hitCoolDown == false)
         {
+            lastHitTime = 0;
+            hitCoolDown = true;
+            StartCoroutine(HitBlinking());
             DamageState++;
             eM.rateOverTime = DamageState * rateOverTimeDelta;
             Destroy(obj.gameObject);
