@@ -138,7 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DmgStateAmount: 3
-  scoreCount: {fileID: 0}
+  blinkDuration: 0.1
+  blinkingColor: {r: 1, g: 0.49264705, b: 0.49264705, a: 1}
 --- !u!212 &212392415274755976
 SpriteRenderer:
   m_ObjectHideFlags: 1

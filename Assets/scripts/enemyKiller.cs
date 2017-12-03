@@ -5,13 +5,23 @@ using UnityEngine;
 public class enemyKiller : MonoBehaviour {
 
     public int DmgStateAmount = 3;
-    scoreCounter scoreCount;
+    public float blinkDuration = 0.1f;
+    public Color blinkingColor;
 
     int DamageState = 0;
+    scoreCounter scoreCount;
+    bool hitCoolDown = false;
 
     void Start()
     {
         scoreCount = GameObject.FindGameObjectWithTag("Score").GetComponent<scoreCounter>();
+    }
+
+    IEnumerator HitBlinking()
+    {
+        GetComponent<SpriteRenderer>().color = blinkingColor;
+        yield return new WaitForSeconds(blinkDuration);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     void OnTriggerEnter2D(Collider2D obj)
@@ -21,6 +31,7 @@ public class enemyKiller : MonoBehaviour {
             Destroy(obj.gameObject);
 
             DamageState++;
+            StartCoroutine("HitBlinking");
 
             if (DamageState >= DmgStateAmount)
             {
