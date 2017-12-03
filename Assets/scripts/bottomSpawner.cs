@@ -58,7 +58,7 @@ public class bottomSpawner : MonoBehaviour
             GameObject expl = Instantiate(explosion, obj.transform.position + Vector3.up * explosionOffset, explosion.transform.rotation);
             Destroy(expl, 2);
 
-            if (obj.tag == "Bomb" && obj.tag == "Projectiles" && lastTime >= coolDown)
+            if ((obj.tag == "Bomb" || obj.tag == "Projectiles") && lastTime >= coolDown)
             {
                 lastHitPos = obj.transform.position;
                 spawn = true;
