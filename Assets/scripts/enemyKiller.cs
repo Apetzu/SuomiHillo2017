@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemyKiller : MonoBehaviour {
 
+	public GameObject deathPlosion;
+
     public int DmgStateAmount = 3;
     public float blinkDuration = 0.1f;
     public Color blinkingColor;
@@ -36,6 +38,8 @@ public class enemyKiller : MonoBehaviour {
             if (DamageState >= DmgStateAmount)
             {
                 scoreCount.AddScore();
+				GameObject Explosion = Instantiate( deathPlosion, transform.position, deathPlosion.transform.rotation);
+				Destroy(deathPlosion, 2);
                 Destroy(this.gameObject);
             }
         }

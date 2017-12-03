@@ -48,6 +48,11 @@ public class planeShooting : MonoBehaviour
 		{
 			if (lastTime >= fireRate)
 			{
+				if (this.gameObject.tag == "Fighter") 
+				{
+					GetComponent<AudioSource> ().Play (); 
+				}
+
                 GameObject proj = Instantiate(projectile, transform.position + projectile.transform.position, projectile.transform.rotation);
                 Destroy(proj, 5);
 				lastTime = 0;

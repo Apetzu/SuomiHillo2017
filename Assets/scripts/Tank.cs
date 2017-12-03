@@ -55,7 +55,8 @@ public class Tank : MonoBehaviour
                 GameObject shell = Instantiate(tankProjectile, transform.TransformPoint(tankProjectile.transform.position), transform.rotation);
                 hull.AddRelativeForce(Vector2.right * shotForce);
                 Destroy(shell, 5);
-				lastTime = 0;
+                GetComponent<AudioSource>().Play();
+                lastTime = 0;
 			}
 			else
 			{

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour 
 {
+	public GameObject deathPlosion;
+
 	public float movementSpeed = 5f;
     public float fireRate = 0.5f;
     public float topClamp = 4;
@@ -92,6 +94,8 @@ public class playerController : MonoBehaviour
         if (DamageState >= DmgStateAmount)
         {
             sC.GameOver();
+			GameObject Explosion = Instantiate(deathPlosion, transform.position, deathPlosion.transform.rotation);
+			Destroy(deathPlosion, 2);
             this.gameObject.SetActive(false);
         }
     }

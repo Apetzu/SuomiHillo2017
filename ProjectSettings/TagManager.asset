@@ -9,6 +9,7 @@ TagManager:
   - PlayerProjectile
   - BG
   - Score
+  - Fighter
   layers:
   - Default
   - TransparentFX
