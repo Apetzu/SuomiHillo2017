@@ -17,6 +17,7 @@ public class playerController : MonoBehaviour
     public ParticleSystem pS;
     public scoreCounter sC;
     bool canShoot = true;
+    public AudioSource shootSound;
 
 	Rigidbody2D rb;
 	Vector2 screenBottomLeft;
@@ -63,6 +64,7 @@ public class playerController : MonoBehaviour
     {
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
+        shootSound.Play();
     }
 
     IEnumerator HitBlinking()
