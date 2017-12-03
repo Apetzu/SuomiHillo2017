@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour 
 {
-	public GameObject deathPlosion;
-
 	public float movementSpeed = 5f;
     public float fireRate = 0.5f;
     public float topClamp = 4;
@@ -20,6 +18,7 @@ public class playerController : MonoBehaviour
     public scoreCounter sC;
     bool canShoot = true;
     public AudioSource shootSound;
+    public GameObject deathPlosion;
 
 	Rigidbody2D rb;
 	Vector2 screenBottomLeft;
@@ -95,7 +94,7 @@ public class playerController : MonoBehaviour
         {
             sC.GameOver();
 			GameObject Explosion = Instantiate(deathPlosion, transform.position, deathPlosion.transform.rotation);
-			Destroy(deathPlosion, 2);
+            Destroy(Explosion, 2);
             this.gameObject.SetActive(false);
         }
     }
