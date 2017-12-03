@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 382767716}
   - component: {fileID: 382767715}
   - component: {fileID: 382767718}
+  - component: {fileID: 382767719}
   m_Layer: 0
   m_Name: BackgroundSlide2
   m_TagString: BG
@@ -134,8 +135,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 382767713}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.24576, y: -0.03999996, z: 0}
-  m_LocalScale: {x: 9.97993, y: 9.97993, z: 9.97993}
+  m_LocalPosition: {x: 66, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 560127894}
   m_RootOrder: 1
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7a788d377b2244bb26417a46aad287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: -10
+  scrollSpeed: -25
 --- !u!50 &382767716
 Rigidbody2D:
   serializedVersion: 4
@@ -203,7 +204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 12d4a62784d098f45b5f24ab2381905d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -229,15 +230,26 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 2}
+    oldSize: {x: 60, y: 20}
     newSize: {x: 6, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 2}
+  m_Size: {x: 60, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &382767719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 382767713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f4ab85890f614459d71525833cc13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &532023525
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +549,7 @@ GameObject:
   - component: {fileID: 775987202}
   - component: {fileID: 775987204}
   - component: {fileID: 775987205}
+  - component: {fileID: 775987207}
   - component: {fileID: 775987206}
   m_Layer: 0
   m_Name: BackgroundSlide1
@@ -576,7 +589,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 12d4a62784d098f45b5f24ab2381905d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -593,8 +606,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 775987201}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.56, y: -0.03999996, z: 0}
-  m_LocalScale: {x: 9.979932, y: 9.979932, z: 9.979932}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 560127894}
   m_RootOrder: 0
@@ -630,7 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7a788d377b2244bb26417a46aad287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: -10
+  scrollSpeed: -25
 --- !u!61 &775987206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -647,15 +660,26 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 2}
+    oldSize: {x: 60, y: 20}
     newSize: {x: 60, y: 20}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 2}
+  m_Size: {x: 60, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &775987207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 775987201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f4ab85890f614459d71525833cc13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &817542172
 GameObject:
   m_ObjectHideFlags: 0
