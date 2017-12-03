@@ -5,9 +5,14 @@ using UnityEngine;
 public class enemyKiller : MonoBehaviour {
 
     public int DmgStateAmount = 3;
-    public scoreCounter scoreCount;
+    scoreCounter scoreCount;
 
     int DamageState = 0;
+
+    void Start()
+    {
+        scoreCount = GameObject.FindGameObjectWithTag("Score").GetComponent<scoreCounter>();
+    }
 
     void OnTriggerEnter2D(Collider2D obj)
     {

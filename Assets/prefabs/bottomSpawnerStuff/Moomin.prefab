@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212767174294640544}
   - component: {fileID: 61463451723163028}
   - component: {fileID: 50909596595693640}
-  - component: {fileID: 114739499078797486}
   m_Layer: 0
   m_Name: Moomin
   m_TagString: Untagged
@@ -72,7 +71,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.1, y: 0}
@@ -88,18 +87,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 2.8}
   m_EdgeRadius: 0
---- !u!114 &114739499078797486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1451657740080716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835aec9c08c37c54d94bb6ed9fb796cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DmgStateAmount: 3
 --- !u!212 &212767174294640544
 SpriteRenderer:
   m_ObjectHideFlags: 1
