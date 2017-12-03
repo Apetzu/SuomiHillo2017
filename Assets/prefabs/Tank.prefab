@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DmgStateAmount: 3
+  scoreCount: {fileID: 0}
 --- !u!114 &114322644994498732
 MonoBehaviour:
   m_ObjectHideFlags: 1

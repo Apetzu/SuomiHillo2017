@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemyKiller : MonoBehaviour {
 
     public int DmgStateAmount = 3;
+    public scoreCounter scoreCount;
 
     int DamageState = 0;
 
@@ -18,6 +19,7 @@ public class enemyKiller : MonoBehaviour {
 
             if (DamageState >= DmgStateAmount)
             {
+                scoreCount.AddScore();
                 Destroy(this.gameObject);
             }
         }

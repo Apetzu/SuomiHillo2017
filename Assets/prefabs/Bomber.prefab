@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DmgStateAmount: 3
+  bananan: {fileID: 0}
 --- !u!212 &212665415256186418
 SpriteRenderer:
   m_ObjectHideFlags: 1
