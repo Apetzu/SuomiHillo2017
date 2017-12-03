@@ -102,7 +102,7 @@ public class topSpawner : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D obj)
     {
-		if (obj.tag != "Player")
+		if (obj.tag != "Player" && obj.tag != "BG")
 			Destroy(obj.gameObject);
     }
 }
