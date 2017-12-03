@@ -284,9 +284,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 150
-  fireRate: 0.7
+  fireRate: 0.2
   topClamp: 4
+  DmgStateAmount: 3
+  rateOverTimeDelta: 5
   bullet: {fileID: 1683951704624248, guid: 968cd480526d69e4c8fc037376c3d4e1, type: 2}
+  pS: {fileID: 1972366937}
 --- !u!50 &590812935
 Rigidbody2D:
   serializedVersion: 4
@@ -691,7 +694,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -523948455
+  randomSeed: 1455192303
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -1248,7 +1251,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2

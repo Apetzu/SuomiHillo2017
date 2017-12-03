@@ -7,19 +7,25 @@ public class playerController : MonoBehaviour
 	public float movementSpeed = 5f;
     public float fireRate = 0.5f;
     public float topClamp = 5;
+    public int DmgStateAmount = 3;
+    public float rateOverTimeDelta = 50;
 
     public GameObject bullet;
+    public ParticleSystem pS;
     bool canShoot = true;
 
 	Rigidbody2D rb;
 	Vector2 screenBottomLeft;
 	Vector2 screenRightTop;
+    int DamageState = 0;
+    ParticleSystem.EmissionModule eM;
 
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
 		screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
 		screenRightTop = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight));
+        eM = pS.emission;
 	}
 
 	void FixedUpdate () 
@@ -45,9 +51,15 @@ public class playerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D obj)
     {
+        if (DamageState >= DmgStateAmount)
+        {
+            this.gameObject.SetActive(false);
+        }
         if (obj.tag != "PlayerProjectile")
         {
-
+            DamageState++;
+            eM.rateOverTime = DamageState * rateOverTimeDelta;
+            Destroy(obj.gameObject);
         }
     }
 }
