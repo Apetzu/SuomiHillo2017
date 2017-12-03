@@ -15,6 +15,7 @@ public class playerController : MonoBehaviour
     public Color blinkingColor;
     public GameObject bullet;
     public ParticleSystem pS;
+    public scoreCounter sC;
     bool canShoot = true;
 
 	Rigidbody2D rb;
@@ -77,11 +78,7 @@ public class playerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D obj)
     {
-        if (DamageState >= DmgStateAmount)
-        {
-            this.gameObject.SetActive(false);
-        }
-        else if (obj.tag != "PlayerProjectile" && obj.tag != "BG" && hitCoolDown == false)
+        if (obj.tag != "PlayerProjectile" && obj.tag != "BG" && hitCoolDown == false)
         {
             lastHitTime = 0;
             hitCoolDown = true;
@@ -89,6 +86,11 @@ public class playerController : MonoBehaviour
             DamageState++;
             eM.rateOverTime = DamageState * rateOverTimeDelta;
             Destroy(obj.gameObject);
+        }
+        if (DamageState >= DmgStateAmount)
+        {
+            sC.GameOver();
+            this.gameObject.SetActive(false);
         }
     }
 }

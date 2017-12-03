@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scoreCounter : MonoBehaviour {
 
 
     public Text ScoreAmount;
     public float Score;
-    
+    public Text EndScore;
+
+    bool playerKilled = false;
 
 	void Start ()
     {
@@ -19,8 +22,18 @@ public class scoreCounter : MonoBehaviour {
 
 	void FixedUpdate ()
     {
-        Score += Time.fixedDeltaTime;
-        setScore();
+        if (playerKilled == false)
+        {
+            Score += Time.fixedDeltaTime;
+            setScore();
+        }
+        else
+        {
+            if (Input.anyKeyDown)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
 	}
 
     void setScore()
@@ -31,5 +44,13 @@ public class scoreCounter : MonoBehaviour {
     public void AddScore(/*float scoreVar*/)
     {
         Score += 25;
+    }
+
+    public void GameOver()
+    {
+        playerKilled = true;
+        ScoreAmount.enabled = false;
+        EndScore.transform.parent.gameObject.SetActive(true);
+        EndScore.text = "Your score was:  " + Mathf.RoundToInt(Score).ToString();
     }
 }
